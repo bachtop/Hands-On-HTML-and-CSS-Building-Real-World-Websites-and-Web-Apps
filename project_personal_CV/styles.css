@@ -1,4 +1,14 @@
-/* Basic reset for consistent styling */
+/* ===== VARIABLES GLOBALES Y RESET BÁSICO ===== */
+:root {
+    --color-primario: #0A2647;    /* Azul oscuro */
+    --color-secundario: #144272; /* Azul medio */
+    --color-acento: #205295;     /* Azul claro */
+    --color-texto: #EAFDFC;      /* Texto claro */
+    --color-fondo: #F8F8F8;      /* Fondo general gris claro */
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-texto: 'Lato', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,76 +16,175 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    /* Using Arial font for simplicity */
-    line-height: 1.6;
-    /* Spacing between lines */
-}
-
-#cv {
-    max-width: 800px;
-    /* CV width */
-    margin: 20px auto;
-    /* Center the CV on the page */
-    padding: 20px;
-    border: 1px solid #ddd;
-    /* Border around the CV */
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-    /* Space below the header */
-}
-
-header h1 {
+    font-family: var(--fuente-texto);
+    background-color: var(--color-fondo);
     color: #333;
-    /* Dark text color for the name */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+a {
+    color: var(--color-acento);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== CABECERA (HEADER) ===== */
+.header {
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 5px;
-    /* Small spacing below the name */
 }
 
-header p {
-    color: #666;
-    /* Lighter text color for the title */
-}
-
-/* Styling for each section's title */
-h2 {
-    background-color: #f4f4f4;
-    /* Light gray background */
-    padding: 10px;
+.header h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-texto);
+    opacity: 0.9;
     margin-bottom: 15px;
-    /* Space below the title */
 }
 
-/* Styling for the contact information */
-#contact address p {
+.header .contact-info {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* ===== ESTILO DE TARJETAS (CARD) GENERAL ===== */
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-secundario);
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.card h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* ===== ESTILOS DE CONTENIDO INTERNO ===== */
+.job, .degree {
+    margin-bottom: 20px;
+}
+
+.job:last-child, .degree:last-child {
+    margin-bottom: 0;
+}
+
+.job-details {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
     margin-bottom: 10px;
-    /* Space between each piece of contact info */
 }
 
-/* Styling for the skills list */
-#skills ul {
-    list-style-type: none;
-    /* Remove the default bullet points */
+/* Estilo general para listas dentro de tarjetas */
+.card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
 }
 
-#skills li {
-    background-color: #f9f9f9;
-    /* Lighter gray background */
-    padding: 5px;
+.card li {
     margin-bottom: 5px;
-    /* Space between each skill */
 }
 
-/* Styling for each work experience */
-#experience article {
-    margin-bottom: 15px;
-    /* Space between each work experience */
+/* Estilo para párrafos en tarjetas (usado en Idiomas y Voluntariado) */
+.card p {
+    margin-bottom: 10px;
+}
+.card p:last-child {
+    margin-bottom: 0;
 }
 
-#experience h3 {
-    margin-bottom: 5px;
-    /* Space below the job title */
+/* Título extra en la última tarjeta */
+.info-adicional-titulo {
+    margin-top: 20px;
+}
+
+
+/* ===== HABILIDADES (SKILLS) - NUEVA SECCIÓN ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.skills-grid span {
+    background-color: var(--color-fondo);
+    color: var(--color-secundario);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===== PIE DE PÁGINA (FOOTER) ===== */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.footer a {
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 25px 20px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header h2 {
+        font-size: 1.2rem;
+    }
+
+    .skills-grid {
+         grid-template-columns: 1fr; /* Apila las habilidades en móviles */
+    }
 }
